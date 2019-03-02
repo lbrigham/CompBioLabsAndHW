@@ -11,10 +11,11 @@ triangleArea <- function(b, h) {
 }
 
 # Demonstrate that it works:
-# Given a triangle of base = 1 and height = 1, we expect an area of 0.5
-triangleArea(1,1)
+triangleArea(1,1) # Given a triangle of base = 1 and height = 1, we expect an area of 0.5
 triangleArea(10,10)
 triangleArea(20,30)
+
+
 
 
 # 2. Write a function named myAbs() that calculates and returns absolute values
@@ -47,6 +48,8 @@ myAbs(-2.3)
 myAbs(c(1.1, 2, 0, -4.3, 9, -12))
 
 
+
+
 #3. Write a function that returns a vector of the first n Fibonacci numbers,
 #where n is any integer >= 3. Your function should take two arguments: the user's desired value of n and the user's 
 #desired starting number (either 0 or 1 as explained in the quote above).
@@ -58,7 +61,7 @@ Fib <- function(n,y) {
     return("Error: n must be >= 3")
     #if the correct output length is given, the function can continue
     # make a vector to store the Fibonacci sequences
-    # start the vector at 1 because the first part of the fxn will consider if y is 1
+    # start the vector at 1 because the first part of the function will consider if y is 1
     # make the vector the length of desired output
   } else {
     Fibonacci <- rep(1,n)
@@ -70,7 +73,7 @@ Fib <- function(n,y) {
     if (y == 1) {
       return(Fibonacci)
      #if the user's desired start was 0, then append a 0 to the front of the output vector and remove the last value
-     # this way the output will be of the right length
+     # this way the output will be of the right length and the right starting value
     } else {
       if (y == 0) {
         Fibonacci_0 <- c(0, Fibonacci[1:n])
@@ -86,10 +89,10 @@ Fib <- function(n,y) {
 
 
 # Demonstrate that it works
-#this should return an error message regarding length
-Fib(2,0)
-#this should return an error message regarding start value
-Fib(5,3)
+Fib(2,0) #this should return an error message regarding length
+
+Fib(5,3)  #this should return an error message regarding start value
+
 Fib(5,0)
 Fib(5,1)
 Fib(10,0)
@@ -103,7 +106,7 @@ Fib(10,1)
 # of the difference between them. 
 
 sqr_LB <- function(x,r) {
-  #needs two numbers as arguments
+  #needs two numbers as arguments, x and r
   #subtract the two numbers and take the square of the difference
   sub_sqr <- (x - r)^2
   return(sub_sqr)
@@ -114,12 +117,14 @@ sqr_LB(3,5)
 sqr_LB(c(2, 4, 6),4)
 
 
+
+
 #Part b
 #Write a function that calculates the average of a vector of numbers. 
 
 mean_LB <- function(x) {
-  #requires a vector of numbers x
-  #sum all numbers in the vector and divide by the number of values given to find the mean
+  #requires a vector of numbers (x)
+  #sum all numbers in the vector and divide by the number of values given 
   sum(x)/length(x)
 }
 
@@ -127,21 +132,23 @@ mean_LB <- function(x) {
 mean_LB(c(5, 15, 10))
 
 #Read in data to test the mean function
-# see for data: https://github.com/flaxmans/CompBio_on_git/blob/master/Labs/Lab07/DataForLab07.csv
+# for data: https://github.com/flaxmans/CompBio_on_git/blob/master/Labs/Lab07/DataForLab07.csv
 
 Lab7_Data <- read.csv('/Users/laurelbrigham/Documents/CU_Boulder/2018-2019/Spring Sem/Comp_Bio/CompBioLabsAndHW/Labs/Lab7/DataForLab07.csv')
 mean_LB(Lab7_Data$x)
 
-#part c
-#Write a function that calculates and returns the sum of squares as defined here. Use the previous two functions you defined. 
-# see for sum of squares explanation and equation: https://en.wikipedia.org/wiki/Total_sum_of_squares
+
+
+#Part c
+#Write a function that calculates and returns the sum of squares. Use the previous two functions you defined. 
+# for sum of squares explanation and equation: https://en.wikipedia.org/wiki/Total_sum_of_squares
 
 sum_sqr <- function(x) {
-  #must be given a vector of numbers x
+  #must be given a vector of numbers (x)
   #create a vector to store the sum of squares
   #make the vector the same length as the input vector
   sum_sqr_vec <- rep(0,length(x))
-  #subtract each number in the vector from the mean and then square that difference
+  #subtract each number in the vector from the mean and square that difference
   for (i in 1:length(x)) {
     sum_sqr_vec[i] <- sqr_LB(x[i],mean_LB(x))
   }
