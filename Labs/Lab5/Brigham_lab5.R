@@ -1,4 +1,5 @@
 #This is my work for lab 5. 15 Feb 19
+#This work has been updated 2 March 19 based on comments from Sam
 
 
 ###Part 1.
@@ -26,15 +27,12 @@ Vector1 <- read.csv('/Users/laurelbrigham/Documents/CU_Boulder/2018-2019/Spring 
   #2a. Using a for() loop, write code that checks each value in the imported data and 
   #replaces every negative value with NA.
 
-#make a variable related to our threshold
-negative <- 0
-
 #I had initially used length(Vector1), but I want to use nrow because it's a dataframe and not a vector
 #length(Vector1) gives a value of 1, but I want a value of 2024, which I get with nrow()
 
 #construct a for loop iterating over nrows within the column x
 for (i in 1:nrow(Vector1)) {
-  if (Vector1$x[i] < negative) {
+  if (Vector1$x[i] < 0) {
     Vector1$x[i] <- NA
   }
 }
@@ -56,7 +54,7 @@ Vector1$x[logical] <- NaN
 vec_nan <- which(is.nan(Vector1$x))
 
 #Now I want to take all of those indexes  and make then 0
-Vector1$x[vec_nan] <- c(0)
+Vector1$x[vec_nan] <- 0
 
   #2d. Use code to determine how many of the values from the imported data fall in the range between
   #50 and 100 (inclusive of those endpoints).
@@ -104,7 +102,7 @@ Threshold_gas <- 0
 logical_Not0 <- CO2_data$Gas != Threshold_gas
 
 #make a data frame that calls all rows of CO2_data that are associated with non-zero gas measurements
-Not0_df <- CO2_data[logical_gt0,]
+Not0_df <- CO2_data[logical_Not0,]
 
 #grab the first row of the year column to find the first year of non-zero gas emissions 
 Not0_df[1,"Year"]
@@ -142,7 +140,7 @@ k <- 0.1 		# conversion constant of prey into predators
 #and the other to store values of p
 
 #make a time vector for future plotting
-time <- rep(1:1000)
+time <- 1:totalGenerations
 
 #make empty vectors to store data
 #the abundance of prey
@@ -168,16 +166,30 @@ for (t in 2:totalGenerations) {
 #Fourth, add some if statements to your code to check for negative numbers each generation. 
 #If, for example, a given value of prey abundance is negative, then that value should be set to be zero.
 
+
+#I'm going to leave the commented nested for loop in the code to serve as an example:
+#One cannot use the same iterator in a nest for loop
+#so while it works, it's not the correct way to go about the problem
+#see the for loop directly below
+
+#for (t in 2:totalGenerations) {
+ # n[t] <- n[t - 1] + (r * n[t - 1]) - (a * n[t - 1] * p[t - 1])
+  #if(n[t] < 0) {
+  #  n[t] <- 0
+ # }
+  #for(t in 2:totalGenerations) {
+   # p[t] <- p[t - 1] + (k * a * n[t - 1] * p[t - 1]) - (m * p[t - 1])
+ # }
+#} 
+
+#this is the updated for loop, I removed the for statement at Sam's suggestion for the reasons stated above
 for (t in 2:totalGenerations) {
   n[t] <- n[t - 1] + (r * n[t - 1]) - (a * n[t - 1] * p[t - 1])
-  if(n[t] < 0) {
+  if (n[t] < 0) {
     n[t] <- 0
   }
-  for(t in 2:totalGenerations) {
     p[t] <- p[t - 1] + (k * a * n[t - 1] * p[t - 1]) - (m * p[t - 1])
-  }
 } 
-
 
 #Fifth, make a plot of the abundances of prey and predators over time (see cheat sheet above for using plot() 
 #and lines()
