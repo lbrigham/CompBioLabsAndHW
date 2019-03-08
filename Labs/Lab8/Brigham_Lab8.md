@@ -68,7 +68,6 @@ return(time_pop)
 logit_grow_plot(r = 0.8, K = 10000, g = 12, n = 2500)
 ```
 ### This demonstration yielded the following plot and numerical output:
-
 ![the lab 8 R script](Demonstration_plot.jpeg)
 
 
@@ -101,6 +100,6 @@ The output was then written to a csv.
 write.csv(x = output_logit_grow, file = "Abundance_Gen.csv", row.names = F)
 ```
 
-To view the R script in its entirety: [Lab 8 R Script](https://github.com/lbrigham/CompBioLabsAndHW/blob/master/Labs/Lab8/Brigham_Lab8.R)
+To view the R script in its entirety, inlcluding detailed comments within the functions: [Lab 8 R Script](https://github.com/lbrigham/CompBioLabsAndHW/blob/master/Labs/Lab8/Brigham_Lab8.R)
 
 
