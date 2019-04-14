@@ -1,10 +1,11 @@
-# ->Nitrogen Deposition in the Front Range, Colorado <-
+# Nitrogen Deposition in the Front Range, Colorado
 
 
 ## Introduction
 Communities across the globe are experiencing ecological presses, such as nitrogen (N) deposition (Vitousek et al. 1997; Dentener et al. 2006), that are causing shifts in community structure and function (Collins et al., 1998; Suding et al., 2008). Community response to N deposition may be mediated by the response of the dominant species; dominant species have a disproportionate influence on the community through species interactions and control over nutrient dynamics (Hillebrand 2008).
 
 My driving question for this project is: How does removal of a dominant species alter community response to nitrogen addition?
+
 
 
 ## Summary of Data to be Analyzed
@@ -21,17 +22,21 @@ The data that I will be working with are species relative abundances collected f
 ### Type of data in this data set
 Format:
 * Wide dataframe with columns for site information and columns for all species
+
 Size:
 * 197 KB
 * 1127 rows and 71 columns
+
 Inconsistencies or potential issues:
 * Missing values are coded both as periods and "na"
 
 
+
 ## Detailed Description of Analysis to be Done and Challenges Involved
-For my data analysis, I will analyze temporal diversity trends and overall treatment effects on community composition and richness. For long-term studies, analyzing metrics such as community composition and richness alone do not provide information on how the community responds to treatment over time. Hence, I will examine temporal diversity with the aid of a package in R developed by Lauren Hallett in 2016 (Hallett et al. 2016; 'codyn'). Using this package, I will determine the rate of change of the community composition over time, which elucidates the direction and rate of community shifts with treatment. As a next step, if I see differences in the degree and rate of community change, I plan on using trait data collected by Marko Spasojevic and deposited on the TRY database (< http://mspaso.wixsite.com/traitecology/trait-data>) to understand the functional shifts in community compositon.
+For my data analysis, I will analyze temporal diversity trends and overall treatment effects on community composition and richness. For long-term studies, analyzing metrics such as community composition and richness alone do not provide information on how the community responds to treatment over time. Hence, I will examine temporal diversity with the aid of a package in R developed by Lauren Hallett in 2016 (Hallett et al. 2016; 'codyn'). Using this package, I will determine the rate of change of the community composition over time, which elucidates the direction and rate of community shifts with treatment. As a next step, if I see differences in the degree and rate of community change, I plan on using trait data collected by Marko Spasojevic and deposited on the TRY database (Spasojevic and Suding 2012); <http://mspaso.wixsite.com/traitecology/trait-data>) to understand the functional shifts in community compositon. Briefly, this data is in wide format and consists of of 114 rows and 12 columns. The file is 8 KB. There are no obvious inconsistencies.
 
 The potential challeges are primarily statistical in nature though there are inconsistencies mentioned in the above section. Two treatments involve removing two species within the community, and this results in zeros for the abundance of these species. Since these zeros are experimentally driven, I will need to deal with these values appropriately before calculating values, such as richness. From a statistical stand point, these data have both a blocking factor (the seven sites) and repeated measures. I will need to run mixed-effects models with block and plot as random factors. Additionally, since these data are temporal and I expect the communities to change over time, time will need to be included in my models in an effort to meet the assumption of homogeneity of variance. Finally, because the data is long-term there is a higher chance that the data is not normal, meaning that I must enter the into the realm of generalized linear mixed effects models with which I am unfamiliar.
+
 
 
 ## References
@@ -43,6 +48,8 @@ Dentener, F., Drevet, J., Lamarque, J. F., Bey, I., Eickhout, B., Fiore, A. M., 
 Hallett, L. M., Jones, S. K., MacDonald, A. A. M., Jones, M. B., Flynn, D. F., Ripplinger, J., Slaughter, P., Gries, C., & Collins, S. L. (2016). CODYN: an R package of community dynamics metrics. Methods in Ecology and Evolution, 7(10): 1146-1151. <https://doi.org/10.1111/2041-210X.12569>
 
 Hillebrand H, Bennett DM, Cadotte MW (2008). Consequences of dominance: a review of evenness effects on local and regional ecosystem processes. Ecology 89:1510–1520. <https://doi.org/10.1890/07-1053.1>
+
+Spasojevic, M. J., & Suding, K. N. (2012). Inferring community assembly mechanisms from functional diversity patterns: the importance of multiple assembly processes. Journal of Ecology, 100(3): 652-661.
 
 Suding, K. N., Ashton, I. W., Bechtold, H., Bowman, W. D., Mobley, M. L., & Winkleman, R. (2008). Plant and microbe contribution to community resilience in a directionally changing environment. Ecological Monographs, 78(3): 313-329. <https://doi.org/10.1890/07-1092.1>
 
