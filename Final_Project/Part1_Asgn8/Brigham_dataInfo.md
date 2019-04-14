@@ -50,7 +50,7 @@ Hallett, L. M., Jones, S. K., MacDonald, A. A. M., Jones, M. B., Flynn, D. F., R
 
 Hillebrand H, Bennett DM, Cadotte MW (2008). Consequences of dominance: a review of evenness effects on local and regional ecosystem processes. Ecology 89:1510–1520. <https://doi.org/10.1890/07-1053.1>
 
-Spasojevic, M. J., & Suding, K. N. (2012). Inferring community assembly mechanisms from functional diversity patterns: the importance of multiple assembly processes. Journal of Ecology, 100(3): 652-661.
+Spasojevic, M. J., & Suding, K. N. (2012). Inferring community assembly mechanisms from functional diversity patterns: the importance of multiple assembly processes. Journal of Ecology, 100(3): 652-661. <https://doi.org/10.1111/j.1365-2745.2011.01945.x>
 
 Suding, K. N., Ashton, I. W., Bechtold, H., Bowman, W. D., Mobley, M. L., & Winkleman, R. (2008). Plant and microbe contribution to community resilience in a directionally changing environment. Ecological Monographs, 78(3): 313-329. <https://doi.org/10.1890/07-1092.1>
 
