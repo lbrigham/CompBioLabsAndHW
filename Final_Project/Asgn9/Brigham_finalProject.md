@@ -35,14 +35,16 @@ Functional changes:
 * To understand how the community changed functionally in addition to compositionally, I examined the effect of treatment on traits. I used an R package ('FD'; Laliberte & Legendre 2010) to compute the community-weighted mean for each trait across all plots and all years. I then ran a linear model on the final year of data and a linear mixed effect model on the longitudinal data.
 
 
-## Results and conclusions
+## Results and Conclusions
 Across all years, I found that there was no main effect of N addition or dominant removal on richness, but that these treatments interacted with time (addition: X2(1) = 46.72, p < 0.001; removal: X2(2) =15.74, P < 0.001). This effect seems to be driven by a reduction in richness around the 8th year of the study across all treatments. This change may have been a result of anomalous climate or a change to the staff collecting community composition data.
 
-Using the longitudinal multivariate data, I saw a main effect of N addition, dominant removal, and time on community composition. Additionally, there was an interaction between time and addition. However, the effect of treatment may be due to differences in dispersion or in the spatial median (p < 0.05).
+Using the longitudinal multivariate data, I saw a main effect of N addition (pseudo-F(1, 712) = 81.48, P = 0.001), dominant removal (pseudo-F(2, 712) = 31.95, P = 0.001), and time (pseudo-F(1, 712) = 2.61, P = 0.001) on community composition. Additionally, there was an interaction between time and addition (pseudo-F(2, 712) = 1.00, P = 0.001) and time and removal (pseudo-F(2, 712) = 0.79, P = 0.001). However, the effect of treatment may be due to differences in dispersion or in the spatial median (Betadisper: P < 0.05).
 
-There was a main effect of N addition on the rate of community change and an interaction between N addition and dominant removal (Fig. 1). The rate of change under N addition was greater when there was no removal or the removal of *D. cespitosa*. The removal of *G. rossii* lessened the rate of change such that was similar to plots with no N added, for which there were no differences amongst dominant removal treatments.
+There was a main effect of N addition on the rate of community change (F(1, 36) = 24.45,  P < 0.001) and an interaction between N addition and dominant removal (F(2,36) = 3.53, P= 0.04 ;Fig. 1). The rate of change under N addition was greater when there was no removal or the removal of *D. cespitosa*. The removal of *G. rossii* lessened the rate of change such that was similar to plots with no N added, for which there were no differences amongst dominant removal treatments.
 
 ![rate change jpeg](Rate_change.jpeg)
+
+
 Figure 1. Communities showed a greater rate of dissimilarity over time with N addition when no species was removed or *D. cespitosa* was removed.
 
 When looking at all years, chlorophyll content (X2(2) = 73.39, p < 0. 001) and SLA (X2(2) = 99.88, p < 0.001) increased with *D. cespitosa* removal. Additionally, there was an interaction between N addition and dominant removal for chlorophyll content such that *D. cespitosa* removal only led to an increase in chlorophyll content relative to the control when N was added (Tukey HSD: P < 0.05). Chlorophyll and SLA were both correlated with height (r > 0.7, p < 0.001), thus height was excluded from analyses.
