@@ -1,4 +1,6 @@
 #This script represents my code for the final project in Comp Bio Spring 2019. -Laurel Brigham
+#I've commented out install.packages and adonis because they take a very long time to run. Please feel free
+#to uncomment
 
 
 
@@ -170,16 +172,6 @@ leveneTest(resid(rich_lmer) ~ interaction(removal, addition, year), data = codom
 #stats
 Anova(rich_lmer)
 
-#plot
-#removal by time
-ggplot(codom_metaData, aes(x = year, y = richness_NA, color = removal)) +
-  geom_smooth(method = "lm") +
-  labs(y = "Richness", x = "Time Interval (Years)", color = "Removal") 
-
-#addition by time
-ggplot(codom_metaData, aes(x = year, y = richness_NA, color = addition)) +
-  geom_smooth(method = "lm") +
-  labs(y = "Richness", x = "Time Interval (Years)", color = "Addition") 
 
 
 ######################
@@ -475,31 +467,6 @@ chloro_glmer <- glmmPQL(ChloroCont ~ removal *  addition * year, random = list(s
 #stats
 Anova(chloro_glmer)
 lsmeans(chloro_glmer, pairwise~ addition * removal, adjust = "tukey")
-
-#make se function
-se <- function(x) {
-  sd(x)/sqrt(length(x))
-}
-
-#summarize the data for plottingß
-summary_CWM <- na.omit(CWM) %>%
-  group_by(removal, addition) %>%
-  summarise(mean_chloro = mean(ChloroCont), se_chloro = se(ChloroCont))
-
-#get letters for plot
-end_chloro_emm <- emmeans(chloro_glmer, ~addition * removal)
-end_chloro_cld <- cld(end_chloro_emm,
-                    alpha   = 0.05,
-                    Letters = letters,        
-                    adjust  = "tukey")
-
-
-#plot
-ggplot(summary_CWM, aes(x = addition, y = mean_chloro, color = removal)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  annotate("text", x = c(0.7,1, 1.3, 1.7, 2, 2.3), y = c(0.8, 0.2,0.15, 0.5, 0.7, 0.5), label = c("a","b","ac", "a", "b", "bc"), size = 4) +
-  geom_errorbar(aes(ymin = mean_chloro - se_chloro, ymax = mean_chloro + se_chloro), position = position_dodge()) 
-  
 
 
 #SLA
